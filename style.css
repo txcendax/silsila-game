@@ -220,6 +220,97 @@ body {
   background: radial-gradient(ellipse at center, #321a02 0%, #100801 100%);
 }
 
+#help-div,
+#inventory-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 60px;
+  border: 1px solid rgba(224, 165, 88, 0.2);
+  outline: 1px solid rgba(224, 165, 88, 0.4);
+  outline-offset: 6px;
+  width: calc(100vw - 40vw);
+  height: calc(100vh - 10vw);
+  background-color: #100801;
+}
+
+#help-close-btn,
+#inventory-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: #f5dfad;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  opacity: 0.6;
+}
+
+#help-close-btn:hover,
+#inventory-close-btn:hover {
+  opacity: 1;
+}
+
+#help-title {
+  align-self: center;
+  font-size: clamp(3rem, 3.5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+#help-div h1 {
+  align-self: center;
+  font-size: clamp(3rem, 3.5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+#help-div.help-intro #help-title {
+  animation: csNameToTop 3.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+#help-div.help-intro .help-divider,
+#help-div.help-intro .help-subtitle,
+#help-div.help-intro .help-text {
+  animation: csFadeIn 1s ease 3.5s forwards;
+}
+
+.help-subtitle {
+  opacity: 0;
+  align-self: center;
+  font-size: clamp(2rem, 3.5vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  align-self: flex-start;
+  color: #d4a874;
+  padding-top: 20px;
+}
+
+.help-divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid rgba(224, 165, 88, 0.4);
+  margin: 20px 0;
+  opacity: 0;
+}
+
+.help-text {
+  opacity: 0;
+  font-size: clamp(1rem, 5vw, 1rem);
+  font-weight: 100;
+  color: #f4e3ad;
+  line-height: 1.8;
+}
+
 #character-sheet,
 #powers-sheet {
   overflow-y: auto;
@@ -457,7 +548,7 @@ body {
 }
 
 
-#pause-div {
+#menu-div {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -474,7 +565,26 @@ body {
   min-width: 300px;
 }
 
-#exit-btn {
+#menu-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: #f5dfad;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  opacity: 0.6;
+}
+
+#menu-close-btn:hover {
+  opacity: 1;
+}
+
+#exit-btn,
+#help-btn,
+#inventory-btn {
   background: none;
   border: 1px solid #f4e3ad;
   color: #f4e3ad;
@@ -484,9 +594,12 @@ body {
   text-transform: uppercase;
   padding: 12px 40px;
   cursor: pointer;
+  margin: 10px;
 }
 
-#exit-btn:hover {
+#exit-btn:hover,
+#help-btn:hover,
+#inventory-btn:hover {
   background-color: #1e0f02;
   border-color: rgba(224, 165, 88, 0.8);
 }
@@ -544,6 +657,8 @@ body {
 #pov-btn-row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 15px;
   opacity: 0;
   animation: fadeInButton 1s ease-in 1s forwards;

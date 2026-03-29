@@ -93,9 +93,23 @@
       <button class="pov-btn" data-id="sefa">Sefa</button>
     </div>
 
-    <div id="pause-div" style="display:none">
+    <div id="menu-div" style="display:none">
+      <button id="menu-close-btn">✕</button>
+      <button id="help-btn">Instructions</button>
+      <button id="inventory-btn">Inventory</button>
       <button id="exit-btn">Exit Game</button>
     </div>
+  </div>
+
+  <div id="help-div" style="display:none">
+    <button id="help-close-btn">✕</button>
+    <h1 id="help-title"></h1>
+    <hr class="help-divider">
+  </div>
+
+  <div id="inventory-div" style="display:none">
+    <button id="inventory-close-btn">✕</button>
+    <h1 id="inventory-title"></h1>
   </div>
 
   <div id="chapter-screen" style="display:none">
@@ -111,6 +125,7 @@
   <script src="screens/chapter_begin.js"></script>
   <script src="chapters/chapter1.js"></script>
   <script src="screens/chapter.js"></script>
+  <script src="screens/menu.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

@@ -147,34 +147,3 @@ document.getElementById('confirm-btn').addEventListener('click', () => {
   }
 })
 
-document.getElementById('menu-btn').addEventListener('click', () => {
-  const pause = document.getElementById('pause-div')
-  pause.style.display = pause.style.display === 'none' ? 'flex' : 'none'
-})
-
-document.getElementById('exit-btn').addEventListener('click', () => {
-  const state = {
-    chapter: chapterCount,
-    chapterChoices: chapterChoices,
-    storyChoices: storyChoices,
-    characters: characters
-      .filter(c => confirmedIds.has(c.id))
-      .map(c => ({
-        id: c.id,
-        name: c.name,
-        selectedPowers: c.skills_info.powers
-          .filter(p => p.selected)
-          .map(p => ({ id: p.id, name: p.name }))
-      }))
-  }
-
-  const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' })
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = 'silsila-save.json'
-  a.click()
-  URL.revokeObjectURL(url)
-
-  window.close()
-})
