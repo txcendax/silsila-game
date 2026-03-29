@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silsila Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="title-screen">
+    <h1>Welcome to Silsila Academy</h1>
+    <div id="title-button-row">
+      <button id="load-btn">Load</button>
+      <button id="begin-btn">Begin</button>
+    </div>
+  </div>
+
+  <div id="load-screen" style="display:none">
+    <h1>Load Your Save File</h1>
+    <button id="upload-btn">Upload</button>
+    <p id="load-error"></p>
+  </div>
+
+   <div id="intro-screen" style="display:none">
+    <img id="star-symbol" src="assets/images/star.png" alt="star" data-id="sarika">
+    <img id="moon-symbol" src="assets/images/moon.png" alt="moon" data-id="azhar">
+    <img id="sun-symbol" src="assets/images/sun.png" alt="sun" data-id="ishan">
+    <img id="comet-symbol" src="assets/images/comet.png" alt="comet" data-id="hashem">
+    <img id="eclipse-symbol" src="assets/images/eclipse.png" alt="eclipse" data-id="sefa">
+    <h1>Select One</h1>
+  </div>
+
+  <div id="character-screen" style="display:none">
+    <div id="character-sheet">
+      <h1 id="cs-name"></h1>
+      <h2 id="cs-title"></h2>
+      <hr class="cs-divider">
+
+      <h2 id="cs-section">General</h2>
+      <p id="cs-age"></1p>
+      <p id="cs-gender"></p>
+      <p id="cs-kingdom"></p>
+      <p id="cs-ethnicity"></p>
+      <p id="cs-residence"></p>
+      <p id="cs-occupation"></p>
+      <p id="cs-realm"></p>
+
+      <h2 id="cs-section">Physical Traits</h2>
+        <p id="cs-height"></p>
+        <p id="cs-skin"></p>
+        <p id="cs-hair"></p>
+        <p id="cs-eye"></p>
+        <p id="cs-accessories"></p>
+
+      <h2 id="cs-section">Personality Traits</h2>
+        <p id="cs-mbti"></p>
+        <p id="cs-enneagram"></p>
+        <p id="cs-alignment"></p>
+        <p id="cs-virtues"></p>
+        <p id="cs-vices"></p>
+        <p id="cs-goals"></p>
+        <p id="cs-quirks"></p>
+
+      <h2 id="cs-section">Biography</h2>
+        <p id="cs-overview"></p>
+        <p id="cs-wounds"></p>
+        <p id="cs-fears"></p>
+        <p id="cs-beliefs"></p>
+        <p id="cs-secrets"></p>
+
+      <button id="powers-btn">Explore Powers</button>
+      </div>
+
+      <div id="powers-sheet" style="display:none">
+        <h1 id="cs-power-title"></h1>
+        <hr class="cs-divider">
+        <h2 id="cs-power-explain"></h2>
+        <div id="powers-list"></div>
+
+        <button id="confirm-btn">Confirm Powers</button>
+      </div>
+  </div>
+
+  <div id="chapter-begin-screen" style="display:none">
+    <button id="menu-btn">Menu</button>
+    <h1 id="chapter-title"></h1>
+    <div id="pov-btn-row">
+      <button class="pov-btn" data-id="sarika">Sarika</button>
+      <button class="pov-btn" data-id="azhar">Azhar</button>
+      <button class="pov-btn" data-id="ishan">Ishan</button>
+      <button class="pov-btn" data-id="hashem">Hashem</button>
+      <button class="pov-btn" data-id="sefa">Sefa</button>
+    </div>
+
+    <div id="pause-div" style="display:none">
+      <button id="exit-btn">Exit Game</button>
+    </div>
+  </div>
+
+  <div id="chapter-screen" style="display:none">
+    <h1 id="chapter-character"></h1>
+    <hr class="chapter-divider">
+    <p id="chapter-text"></p>
+    <div id="chapter-choices"></div>
+  </div>
+
+  <script src="data/characters.js"></script>
+  <script src="screens/intro.js"></script>
+  <script src="screens/load.js"></script>
+  <script src="screens/chapter_begin.js"></script>
+  <script src="chapters/chapter1.js"></script>
+  <script src="screens/chapter.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
+
