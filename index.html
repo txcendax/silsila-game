@@ -42,6 +42,7 @@
       <p id="cs-gender"></p>
       <p id="cs-kingdom"></p>
       <p id="cs-ethnicity"></p>
+      <p id="cs-languages"></p>
       <p id="cs-residence"></p>
       <p id="cs-occupation"></p>
       <p id="cs-realm"></p>
@@ -82,8 +83,17 @@
       </div>
   </div>
 
+  <button id="menu-btn">Menu</button>
+
+  <div id="menu-div" style="display:none">
+    <button id="menu-close-btn">✕</button>
+    <button id="help-btn">Instructions</button>
+    <button id="inventory-btn">Inventory</button>
+    <button id="data-btn">Character Data</button>
+    <button id="exit-btn">Exit Game</button>
+  </div>
+
   <div id="chapter-begin-screen" style="display:none">
-    <button id="menu-btn">Menu</button>
     <h1 id="chapter-title"></h1>
     <div id="pov-btn-row">
       <button class="pov-btn" data-id="sarika">Sarika</button>
@@ -91,13 +101,6 @@
       <button class="pov-btn" data-id="ishan">Ishan</button>
       <button class="pov-btn" data-id="hashem">Hashem</button>
       <button class="pov-btn" data-id="sefa">Sefa</button>
-    </div>
-
-    <div id="menu-div" style="display:none">
-      <button id="menu-close-btn">✕</button>
-      <button id="help-btn">Instructions</button>
-      <button id="inventory-btn">Inventory</button>
-      <button id="exit-btn">Exit Game</button>
     </div>
   </div>
 
@@ -119,11 +122,32 @@
     <div id="inventory-content"></div>
   </div>
 
+  <div id="data-div" style="display:none">
+    <button id="data-close-btn">✕</button>
+    <div id="data-tabs">
+      <button class="data-tab active" data-id="sarika">Sarika</button>
+      <button class="data-tab" data-id="azhar">Azhar</button>
+      <button class="data-tab" data-id="ishan">Ishan</button>
+      <button class="data-tab" data-id="hashem">Hashem</button>
+      <button class="data-tab" data-id="sefa">Sefa</button>
+    </div>
+    <div id="data-content"></div>
+  </div>
+
   <div id="chapter-screen" style="display:none">
     <h1 id="chapter-character"></h1>
-    <hr class="chapter-divider">
     <p id="chapter-text"></p>
+    <p id="chapter-hint">CLICK ANYWHERE TO PROCEED</p>
     <div id="chapter-choices"></div>
+    <button class="log-btn">View Log</button>
+  </div>
+
+  <div id="log-div" style="display:none">
+    <button id="log-close-btn">✕</button>
+    <h1 id="log-title">Log</h1>
+    <h2 id="log-character"></h2>
+    <hr class="log-divider">
+    <div id="log-content"></div>
   </div>
 
   <script src="data/characters.js"></script>

@@ -50,7 +50,7 @@ document.querySelectorAll('.pov-btn').forEach(btn => {
 
     script.onload = () => {
       document.getElementById('chapter-begin-screen').style.display = 'none'
-      document.getElementById('chapter-screen').style.display = 'block'
+      document.getElementById('chapter-screen').style.display = 'flex'
       startChapter(window.chapterData)
     }
 

@@ -45,6 +45,7 @@ document.getElementById('upload-btn').addEventListener('click', () => {
       document.getElementById('load-screen').style.display = 'none'
       document.getElementById('chapter-title').textContent = `Chapter ${chapterCount}`
       document.getElementById('chapter-begin-screen').style.display = 'flex'
+      document.getElementById('menu-btn').classList.add('visible')
       updatePovButtons()
     }
     reader.readAsText(file)

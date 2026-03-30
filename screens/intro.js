@@ -51,6 +51,7 @@ function renderCharacterSheet(character) {
   document.getElementById('cs-gender').textContent = `Gender: ${character.gen_info.gender}`
   document.getElementById('cs-kingdom').innerHTML = `Kingdom: ${character.gen_info.kingdom.value} <span class="cs-tooltip" data-tooltip="${character.gen_info.kingdom.description}">ⓘ</span>`
   document.getElementById('cs-ethnicity').textContent = `Ethnicity: ${character.gen_info.ethnicity}`
+  document.getElementById('cs-languages').textContent = `Languages: ${character.gen_info.languages.join(', ')}`
   document.getElementById('cs-residence').innerHTML = `Residence: ${character.gen_info.residence.value} <span class="cs-tooltip" data-tooltip="${character.gen_info.residence.description}">ⓘ</span>`
   document.getElementById('cs-occupation').textContent = `Occupation: ${character.gen_info.occupation}`
   document.getElementById('cs-realm').innerHTML = `Field of Study: ${character.skills_info.magic_realm.value} <span class="cs-tooltip" data-tooltip="${character.skills_info.magic_realm.description}">ⓘ</span>`
@@ -140,6 +141,7 @@ document.getElementById('confirm-btn').addEventListener('click', () => {
     chapterCount++
     document.getElementById('chapter-title').textContent = `Chapter ${chapterCount}`
     document.getElementById('chapter-begin-screen').style.display = 'flex'
+    document.getElementById('menu-btn').classList.add('visible')
     updatePovButtons()
   } else {
     document.getElementById('intro-screen').style.display = 'block'

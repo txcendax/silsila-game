@@ -85,7 +85,7 @@ var chapterData = {
     },
     "end": {
       character: "sarika",
-      text: "Rushing back to your desk, you gather a handful of papers and shove them into your bag. You wipe your tears with the back of your hand before stacking the tomes you had borrowed. When you grab the last item off the desk, you pause.\nIt’s an unfamiliar envelope, marked by a red seal. When you peer closer, you’re able to make out the design. It’s the Academy crest.\nEyebrows furrowing, you flip the envelope over. The letter is addressed to “Miss Sarika Nakshatri,” inked in graceful calligraphy font. But when you look for the sender name, it’s nowhere to be found.\n\[INVITATION has been added to your inventory.\]\n\[To view your inventory, please select Menu > Inventory.\]",
+      text: "Rushing back to your desk, you gather a handful of papers and shove them into your bag. You wipe your tears with the back of your hand before stacking the tomes you had borrowed. When you grab the last item off the desk, you pause.\nIt’s an unfamiliar envelope, marked by a red seal. When you peer closer, you’re able to make out the design. It’s the Academy crest.\nEyebrows furrowing, you flip the envelope over. The letter is addressed to “Miss Sarika Nakshatri,” inked in graceful calligraphy font. But when you look for the sender name, it’s nowhere to be found.\n\[INVITATION has been added to Sarika's inventory.\]\n\[To view your inventory, please select Menu > Inventory.\]",
       canSwitch: false,
       lockedPerspectives: [],
       choices: []
