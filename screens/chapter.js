@@ -49,9 +49,18 @@ function renderNode(nodeId, isFirstRender = false) {
     setTimeout(() => renderNode(currentNode.leadsTo), autoDelay)
   } else if (currentNode.choices.length === 0) {
     const btn = document.createElement('button')
-    btn.textContent = 'Next'
+    btn.textContent = 'End of Chapter'
     btn.classList.add('chapter-choices')
     btn.addEventListener('click', () => {
+      if (currentChapter.unlocks) {
+        currentChapter.unlocks.forEach(({ character, itemName }) => {
+          const list = inventoryItems[character]
+          if (list) {
+            const item = list.find(i => i.name === itemName)
+            if (item) item.unlocked = true
+          }
+        })
+      }
       chapterCount++
       document.getElementById('chapter-screen').style.display = 'none'
       document.getElementById('chapter-title').textContent = `Chapter ${chapterCount}`
@@ -67,6 +76,11 @@ function renderNode(nodeId, isFirstRender = false) {
       btn.addEventListener('click', () => {
         if (!storyChoices[currentChapter.id]) storyChoices[currentChapter.id] = {}
         storyChoices[currentChapter.id][nodeId] = choice.leadsTo
+
+        const textContainer = document.getElementById('chapter-text')
+        const lastPara = textContainer.lastElementChild
+        if (lastPara) lastPara.textContent += ' ' + choice.text
+
         renderNode(choice.leadsTo)
       })
       choicesDiv.appendChild(btn)

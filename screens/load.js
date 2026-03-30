@@ -26,6 +26,9 @@ document.getElementById('upload-btn').addEventListener('click', () => {
       if (saveData.storyChoices) {
         Object.assign(storyChoices, saveData.storyChoices)
       }
+      if (saveData.inventoryItems) {
+        Object.assign(inventoryItems, saveData.inventoryItems)
+      }
 
       saveData.characters.forEach(savedChar => {
         confirmedIds.add(savedChar.id)

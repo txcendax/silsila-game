@@ -11,7 +11,8 @@ document.getElementById('help-close-btn').addEventListener('click', () => {
   document.getElementById('help-div').style.display = 'none'
 })
 
-document.getElementById('inventory-close-btn').addEventListener('click', () => {
+document.getElementById('inventory-close-btn').addEventListener('click', (e) => {
+  e.stopPropagation()
   document.getElementById('inventory-div').style.display = 'none'
 })
 
@@ -65,15 +66,83 @@ document.getElementById('help-btn').addEventListener('click', (e) => {
   helpDiv.classList.add('help-intro')
 })
 
+const inventoryItems = {
+  sarika: [
+    { name: 'Invitation', description: 'A mysterious invitation', image: 'assets/images/inventory/invitation.png', unlocked: false},
+    { name: 'Prophecy', description: 'A prophecy from the Academy', image: 'assets/images/inventory/prophecy.png', unlocked: false}
+  ],
+  azhar: [
+    { name: 'Invitation', description: 'A mysterious invitation', image: 'assets/images/inventory/invitation.png', unlocked: false},
+    { name: 'Prophecy', description: 'A prophecy from the Academy', image: 'assets/images/inventory/prophecy.png', unlocked: false}
+  ],
+  ishan: [
+    { name: 'Invitation', description: 'A mysterious invitation', image: 'assets/images/inventory/invitation.png', unlocked: false},
+    { name: 'Prophecy', description: 'A prophecy from the Academy', image: 'assets/images/inventory/prophecy.png', unlocked: false}
+  ],
+  hashem: [
+    { name: 'Invitation', description: 'A mysterious invitation', image: 'assets/images/inventory/invitation.png', unlocked: false},
+    { name: 'Prophecy', description: 'A prophecy from the Academy', image: 'assets/images/inventory/prophecy.png', unlocked: false}
+  ],
+  sefa: [
+    { name: 'Invitation', description: 'A mysterious invitation', image: 'assets/images/inventory/invitation.png', unlocked: false},
+    { name: 'Prophecy', description: 'A prophecy from the Academy', image: 'assets/images/inventory/prophecy.png', unlocked: false}
+  ]
+}
+
+function switchInventoryTab(id) {
+  document.querySelectorAll('.inv-tab').forEach(t => t.classList.toggle('active', t.dataset.id === id))
+
+  const content = document.getElementById('inventory-content')
+  content.innerHTML = ''
+
+  const grid = document.createElement('div')
+  grid.className = 'inventory-grid'
+
+  const items = inventoryItems[id] || []
+  for (let i = 0; i < 16; i++) {
+    const cell = document.createElement('div')
+    cell.className = 'inventory-cell'
+    if (items[i] && items[i].unlocked) {
+      const img = document.createElement('img')
+      img.src = items[i].image
+      img.alt = items[i].description
+      cell.appendChild(img)
+
+      if (items[i].description) {
+        const tooltip = document.createElement('div')
+        tooltip.className = 'inv-tooltip'
+        tooltip.textContent = items[i].description
+        cell.appendChild(tooltip)
+
+        cell.addEventListener('mouseenter', () => {
+          const rect = cell.getBoundingClientRect()
+          cell.style.setProperty('--inv-tip-x', `${rect.left + rect.width / 2}px`)
+          cell.style.setProperty('--inv-tip-y', `${rect.top - 8}px`)
+        })
+      }
+    }
+    grid.appendChild(cell)
+  }
+
+  content.appendChild(grid)
+}
+
+document.querySelectorAll('.inv-tab').forEach(tab => {
+  tab.addEventListener('click', (e) => {
+    e.stopPropagation()
+    switchInventoryTab(tab.dataset.id)
+  })
+})
+
+document.getElementById('inventory-div').addEventListener('click', (e) => {
+  e.stopPropagation()
+})
+
 document.getElementById('inventory-btn').addEventListener('click', (e) => {
   e.stopPropagation()
   document.getElementById('menu-div').style.display = 'none'
-
-  const inventoryDiv = document.getElementById('inventory-div')
-  inventoryDiv.querySelectorAll('.inventory-section').forEach(el => el.remove())
-  document.getElementById('inventory-title').textContent = 'Inventory'
-
-  inventoryDiv.style.display = 'flex'
+  switchInventoryTab('sarika')
+  document.getElementById('inventory-div').style.display = 'flex'
 })
 
 document.getElementById('exit-btn').addEventListener('click', () => {
@@ -81,6 +150,7 @@ document.getElementById('exit-btn').addEventListener('click', () => {
     chapter: chapterCount,
     chapterChoices: chapterChoices,
     storyChoices: storyChoices,
+    inventoryItems: inventoryItems,
     characters: characters
       .filter(c => confirmedIds.has(c.id))
       .map(c => ({
