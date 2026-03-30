@@ -169,6 +169,4 @@ document.getElementById('exit-btn').addEventListener('click', () => {
   a.download = 'silsila-save.json'
   a.click()
   URL.revokeObjectURL(url)
-
-  window.close()
 })
